@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza Rynku Samochodowego</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .footer {
+            margin-top: auto;
+        }
+
+        .car {
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Analiza Rynku Samochodowego</h1>
+    </header>
+
+    <div class="filter-container">
+        <div class="filter-group">
+            <label for="brandFilter">Filtruj według marki:</label>
+            <select id="brandFilter"></select>
+        </div>
+
+        <div class="filter-group">
+            <label for="modelFilter">Filtruj według modelu:</label>
+            <select id="modelFilter"></select>
+        </div>
+
+        <div class="filter-actions">
+            <button onclick="applyFilters()">Zastosuj filtry</button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Szukaj według nazwy">
+            <button onclick="searchCars()">Szukaj</button>
+        </div>
+    </div>
+
+    <section class="car-list" id="carList">
+      <!-- tu umiescilem, jak moglby wygladac przykladowy samochod, + w miare mozliwosci zdjecie -->
+        <div class="car" onclick="showCarDetails('Toyota Camry', '2022', '120 000 PLN')">
+            <h2>Toyota Camry</h2>
+            <p>Rok produkcji: 2022</p>
+            <p>Cena: 120 000 PLN</p>
+        </div>
+
+        
+    </section>
+
+    <section class="car-details" id="carDetails"></section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Analiza Rynku Samochodowego</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function showCarDetails(brand, year, price) {
+            const carDetailsSection = document.getElementById('carDetails');
+            carDetailsSection.innerHTML = `
+                <h2>${brand}</h2>
+                <p>Rok produkcji: ${year}</p>
+                <p>Cena: ${price}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
